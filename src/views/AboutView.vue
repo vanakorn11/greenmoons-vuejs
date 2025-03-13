@@ -1,15 +1,33 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>Hello about page : {{ $route.params.id }}</h1>
+    <hr />
+
+    <button @click="goHomePage">go homepage</button>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+// --------------------------- Route ---------------------------
+
+const route = useRoute()
+
+const router = useRouter()
+
+// get id in script => route.params.id
+
+onMounted(() => {
+  // call api here
+})
+
+// --------------------------- Function ---------------------------
+
+const goHomePage = () => {
+  router.push('/')
 }
-</style>
+</script>
+
+<style scoped></style>
